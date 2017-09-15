@@ -71,9 +71,6 @@ void nextCell(int *color,int n){
                         count++;
                 }
             }
-            //if(count < 100000) val = cell[i][j];
-            //if(count >= 6)cell[i][j] = (cell[i][j] + 1) % 5;
-            //cell[i][j] = 1;//(cell2[i][j] + 1) % 5;
             if(count >= 6)
                 switch (val){
                     case 0 :
@@ -127,38 +124,3 @@ void nextCell(int *color,int n){
         }
     }
 }
-
-/*
-   enum Direction {
-   LEFT = 0,
-   UP,
-   RIGHT,
-   DOWN
-   } direction = LEFT;
-
-   int ant(int* start, int width, int height, int position) {
-   if (start[position] == 0xff000000) {
-   start[position] = 0xffffffff;
-   direction = (direction + 1) % 4;
-   } else {
-   start[position] = 0xff000000;
-   direction = (direction + 3) % 4;
-   }
-   switch (direction) {
-   case LEFT:
-   return (position % width > 0) ? position - 1 : position + width - 1;
-   break;
-   case UP:
-   return (position > width) ? position - width : position + width * (height - 1);
-   break;
-   case RIGHT:
-   return (position % width < width - 1) ? position + 1 : position - width + 1;
-   break;
-   case DOWN:
-   return (position < width * (height - 1)) ? position + width : position % width;
-   break;
-   default:
-   return position;
-   break;
-   }
-   }*/
