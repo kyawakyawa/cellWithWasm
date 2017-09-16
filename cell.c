@@ -61,8 +61,46 @@ void nextCell(int *color,int n){
             }
         }
     }
-
     for(int i = 0;i < n;i++){
+        for(int j = 0;j < n;j++){
+            int count = 0;int val = (cell[i][j] + 1) % 5;
+            for(int k = -2;k < 3;k++){
+                for(int l = -2;l < 3;l++){
+                    if((0 <= i + k && i + k < n && 0 <= j + l && j + l < n) && cell[i + k][j + l] == val){
+                        count++;
+                    }
+                    //if(cell[(i + k + n) % n][(j + l + n) % n] == val)
+                        //count++;
+                }
+            }
+            if(count >= 6)
+                switch (val){
+                    case 0 :
+                        //glColor3d(0.5, 0.0, 1.0);
+                        color[i * n + j] = 0xffff008f;
+                        break;
+                    case 1 :
+                        //glColor3d(0.0, 0.0, 1.0);
+                        color[i * n + j] = 0xffff0000;
+                        break;
+                    case 2 :
+                        //glColor3d(0.0, 1.0, 0.0);
+                        color[i * n + j] = 0xff00ff00;
+                        break;
+                    case 3 :
+                        //glColor3d(1.0, 1.0, 0.0);
+                        color[i * n + j] = 0xff00ffff;
+                        break;
+                    case 4 :
+                        //glColor3d(1.0, 0.0, 0.0);
+                        color[i * n + j] = 0x0000ff;
+                        break;
+                }
+        }
+    }
+
+
+    /*for(int i = 0;i < n;i++){
         for(int j = 0;j < n;j++){
             int count = 0;int val = (cell[i][j] + 1) % 5;
             for(int k = -2;k < 3;k++){
@@ -95,7 +133,7 @@ void nextCell(int *color,int n){
                         break;
                 }
         }
-    }
+    }*/
 
     for (int i = 0; i < n; i++) {
         for(int j = 0;j < n;j++){
